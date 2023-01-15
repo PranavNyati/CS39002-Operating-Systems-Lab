@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cat $1 | rev | sort -n > $2
 num_lines=$(wc -l < $2)
 declare -a arr
@@ -13,15 +12,8 @@ next=${arr[2]}
 
 for ((i=2; i <= $num_lines; i++))
 do
-
     num1=$curr
     num2=$next
-    echo $i
-    echo $num1
-    echo $num2
-    echo ""
-
-    # finding the GCD
 
     if [ $curr -lt $next ]
     then 
@@ -39,9 +31,7 @@ do
     done
 
     gcd=$next
-
     lcm=`expr $num1 \* $num2 / $gcd`
-
     curr=$lcm
     if [ $i -eq $num_lines ]
     then
