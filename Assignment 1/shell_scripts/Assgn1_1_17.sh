@@ -1,27 +1,17 @@
 #!/bin/bash
 cat $1 | rev | sort -n > $2
-num_lines=$(wc -l < $2)
-declare -a arr
-for ((i=1; i<=$num_lines; i++))
-do
-    arr[$i]=$(sed -n "$i"p $2)
-done
+curr=$(sed -n "1"p $2)
 
-curr=${arr[1]}
-next=${arr[2]}
-
-for ((i=2; i <= $num_lines; i++))
+for i in `seq 2 $(wc -l < $2)`
 do
+    next=$(sed -n "$i"p $2)
     num1=$curr
     num2=$next
-
     if [ $curr -lt $next ]
     then 
-        temp=$curr
         curr=$next
-        next=$temp
+        next=$num1
     fi
-
     r=`expr $curr % $next`
     while [ $r -ne 0 ]
     do
@@ -29,17 +19,9 @@ do
         next=$r
         r=`expr $curr % $next`
     done
-
-    gcd=$next
-    lcm=`expr $num1 \* $num2 / $gcd`
-    curr=$lcm
-    if [ $i -eq $num_lines ]
-    then
-        break
-    fi
-    next=${arr[`expr $i + 1`]}
+    curr=`expr $num1 \* $num2 / $next`
 done
-echo $lcm
+echo $curr
 
 
 
