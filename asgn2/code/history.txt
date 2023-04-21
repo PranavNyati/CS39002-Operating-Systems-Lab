@@ -1,0 +1,78 @@
+ls
+ls .
+pwd
+cd ..
+delep data.txt
+ls
+ls
+ls
+ls .
+clear
+clear
+ls .
+pwd
+ls ..
+cd ..
+pwd
+ls
+ls .
+ls .
+exiy
+exit
+ls
+ls ..
+ls 
+ls 
+ls .
+ls ..
+ls ../A
+cd
+exit
+ls
+pwd
+   pwd
+exit
+ls
+exitt
+ls
+pwd
+   ls   
+   ls   ./A
+ls     .
+ls
+ls
+ls
+ls
+ls .
+./
+./a.out
+ls
+less
+ls
+./ls
+ls
+pwd
+ls -lRa "/home/nyati_pranav26/Pranav" 
+exit
+sort ls -lRa
+exit
+sort | ls -lRa| rev
+ls
+pwd
+neofetch
+ls -lRa
+ls -l
+ls 
+ls -lR
+ls -l -R
+pwd
+cd ..
+ps aux
+ls -lRa
+ls -lRa
+ls -lRA
+ps aux
+ls
+exit
+ls
+exit

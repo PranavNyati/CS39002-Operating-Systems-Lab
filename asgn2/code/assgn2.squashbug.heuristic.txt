@@ -1,0 +1,23 @@
+Usage:
+    g++ squashbug.cpp -o sb
+    ./sb <pid> [-sugest]
+    pass -suggest to kill all the bugs in its process group
+
+Result:
+    displays the entire branch of the process with <pid> till its root
+    optionally (when -suggest flag is passed) kills all the bugs in it's tree till root
+
+Implementation:
+    /proc directory has information about all the currently running processes
+    program spawns a child which checks the /proc/<pid>/stat and gets the parent pid (ppid)
+    recursively call and check the /proc/<ppid>/stat to get the parent at upper level
+    base case: process name of parent is different than the current child malware, function returns the pid of current child
+
+Heuristic and assumptions: 
+    - The bug forks itself and spawns the child, hence process name of child bug remains the same
+    - This is untrue for the root process as it was executed by some other process (the caller of root malware)
+    - So recursively find parent of bug until this root malware is not found
+    - kill the bug process tree by giving a SIGSEGV signal to the entire bug process group
+    - Even if the root malware is in S state (sleeping), it will be killed since, the program fetches the process group id from 
+    the /proc/<pid>/stat file of non sleeping (and detectable in /proc) bug process
+    
