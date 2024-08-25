@@ -28,7 +28,6 @@ string getCmd(bool echo)
     }
 
     vector<string> history;
-
     char buff[1024];
 
     while (!feof(fp))

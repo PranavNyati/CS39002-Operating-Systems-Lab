@@ -281,7 +281,6 @@ int main()
     fg_processes_pid.clear();
     bg_processes_pid.clear();
 
-
     // setting the signal handlers     
     signal(SIGCHLD, manage_child); // SIGCHLD is sent to the parent process when a child process terminates either normally or abnormally
 
