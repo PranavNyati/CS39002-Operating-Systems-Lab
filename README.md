@@ -1,1 +1,2 @@
-# Hospital_Management_System_DBMS_Project
+# CS39002-Operating-Systems-Lab
+
